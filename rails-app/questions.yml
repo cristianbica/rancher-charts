@@ -1,5 +1,15 @@
 questions:
 
+- variable: name
+  group: "Nmae"
+  default: ""
+  type: string
+- variable: image
+  group: "Image"
+  default: ""
+  type: string
+
+
 - variable: web.enabled
   group: "Web Server Settings"
   default: true
