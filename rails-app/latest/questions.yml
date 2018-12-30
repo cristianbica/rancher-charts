@@ -62,46 +62,56 @@ questions:
 
 
 - variable: env.var1.name
+  label: "Name"
   group: "Environment Variables"
   default: "RAILS_ENV"
   type: string
 - variable: env.var1.value
+  label: "Value"
   group: "Environment Variables"
   default: "production"
   type: string
 
 - variable: env.var2.name
+  label: "Name"
   group: "Environment Variables"
   default: "DATABASE_URL"
   type: string
 - variable: env.var2.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var3.name
+  label: "Name"
   group: "Environment Variables"
   default: "SENTRY_URL"
   type: string
 - variable: env.var3.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var4.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var4.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var5.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var5.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
