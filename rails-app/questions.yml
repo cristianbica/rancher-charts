@@ -46,7 +46,36 @@ questions:
     type: string
     label: Docker Command
 
-- variable: redis.enabled
+
+- variable: db.enabled
+  group: "Database Settings"
+  default: true
+  type: boolean
+  label: Database Enabled
+  show_subquestion_if: true
+  subquestions:
+  - variable: db.type
+    default: "postgres"
+    type: enum
+    label: "Type"
+    options:
+    - postgres
+  - variable: db.username
+    default: "postgres"
+    type: string
+    name: "Username"
+  - variable: db.password
+    default: ""
+    type: password
+    label: Password
+  - variable: db.name
+    default: ""
+    type: string
+    label: Database name
+
+
+
+    - variable: redis.enabled
   group: "Redis Settings"
   default: true
   type: boolean
@@ -54,7 +83,7 @@ questions:
   show_subquestion_if: true
   subquestions:
   - variable: redis.name
-    default: "web"
+    default: "redis"
     type: string
     label: "Name"
     description: "Will be used to name the resources"
@@ -71,7 +100,7 @@ questions:
   show_subquestion_if: true
   subquestions:
   - variable: cache.name
-    default: "web"
+    default: "redis-cache"
     type: string
     label: "Name"
     description: "Will be used to name the resources"
