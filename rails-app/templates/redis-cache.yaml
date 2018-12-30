@@ -1,5 +1,5 @@
 {{- if .Values.cache.enabled }}
-apiVersion: apps/v1beta2
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: {{ .Values.cache.name }}
@@ -18,7 +18,6 @@ spec:
       labels:
         release: "{{ .Release.Name }}"
         app: {{ .Values.cache.name }}
-
     spec:
       containers:
       - name: {{ .Values.cache.name }}
@@ -33,7 +32,7 @@ spec:
         - --maxmemory-policy
         - allkeys-lru
         ports:
-        - containerPort: {{ .Values.cache.name }}
+        - containerPort: 6379
           name: {{ .Values.cache.name }}-tcp-port
           protocol: TCP
         livenessProbe:
