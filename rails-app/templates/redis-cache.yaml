@@ -11,17 +11,17 @@ metadata:
 
 spec:
   replicas: 1
+  strategy:
+    type: RollingUpdate
   template:
     metadata:
       labels:
         release: "{{ .Release.Name }}"
         app: {{ .Values.cache.name }}
 
-  strategy:
-    type: RollingUpdate
     spec:
       containers:
-      - name: redis-cache
+      - name: {{ .Values.cache.name }}
         image: redis:latest
         imagePullPolicy: Always
         args:
