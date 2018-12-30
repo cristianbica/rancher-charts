@@ -1,4 +1,5 @@
 questions:
+
 - variable: web.enabled
   group: "Web Server Settings"
   default: true
@@ -24,6 +25,7 @@ questions:
     type: string
     label: Hostname
     description: "Will be used for ingress and generate certificate"
+
 
 - variable: worker.enabled
   group: "Worker Settings"
@@ -74,8 +76,7 @@ questions:
     label: Database name
 
 
-
-    - variable: redis.enabled
+- variable: redis.enabled
   group: "Redis Settings"
   default: true
   type: boolean
