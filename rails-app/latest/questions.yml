@@ -59,3 +59,94 @@ questions:
     default: "100mb"
     type: string
     label: Redis Memory Limit
+
+
+- variable: env.var1.name
+  group: "Environment Variables"
+  default: "RAILS_ENV"
+  type: string
+- variable: env.var1.value
+  group: "Environment Variables"
+  default: "production"
+  type: string
+
+- variable: env.var2.name
+  group: "Environment Variables"
+  default: "DATABASE_URL"
+  type: string
+- variable: env.var2.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var3.name
+  group: "Environment Variables"
+  default: "SENTRY_URL"
+  type: string
+- variable: env.var3.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var4.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var4.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var5.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var5.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var6.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var6.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var7.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var7.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var8.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var8.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var9.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var9.value
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var10.name
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var10.value
+  group: "Environment Variables"
+  default: ""
+  type: string
