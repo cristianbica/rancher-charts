@@ -1,11 +1,16 @@
 questions:
 - variable: web.enabled
+  group: "Web Server Settings"
   default: true
   type: boolean
   label: Web Server Enabled
   show_subquestion_if: true
-  group: "Web Server Settings"
   subquestions:
+  - variable: web.host
+    default: ""
+    type: string
+    label: Hostname
+    description: "Will be used for ingress and generate certificate"
   - variable: web.entrypoint
     default: ""
     type: string
@@ -14,3 +19,43 @@ questions:
     default: ""
     type: string
     label: Docker Command
+
+- variable: worker.enabled
+  group: "Worker Settings"
+  default: true
+  type: boolean
+  label: Worker Enabled
+  show_subquestion_if: true
+  subquestions:
+  - variable: worker.entrypoint
+    default: ""
+    type: string
+    label: Docker Entrypoint
+  - variable: worker.command
+    default: ""
+    type: string
+    label: Docker Command
+
+- variable: redis.enabled
+  group: "Redis Settings"
+  default: true
+  type: boolean
+  label: Redis Enabled
+  show_subquestion_if: true
+  subquestions:
+  - variable: redis.storageclass
+    default: ""
+    type: storageclass
+    label: Storage Class
+
+- variable: cache.enabled
+  group: "Redis Cache Settings"
+  default: true
+  type: boolean
+  label: Redis Cache Enabled
+  show_subquestion_if: true
+  subquestions:
+  - variable: redis.memory
+    default: "100mb"
+    type: string
+    label: Redis Memory Limit
