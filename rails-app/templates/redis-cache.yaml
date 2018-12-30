@@ -33,7 +33,7 @@ spec:
         - allkeys-lru
         ports:
         - containerPort: 6379
-          name: {{ .Values.cache.name }}-tcp-port
+          name: redis-tcp-port
           protocol: TCP
         livenessProbe:
           failureThreshold: 3
