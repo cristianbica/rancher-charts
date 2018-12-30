@@ -27,6 +27,11 @@ questions:
   label: Worker Enabled
   show_subquestion_if: true
   subquestions:
+  - variable: worker.name
+    default: "worker"
+    type: string
+    label: "Worker name"
+    description: "Will be used to name the resources"
   - variable: worker.entrypoint
     default: ""
     type: string
