@@ -6,11 +6,11 @@ questions:
   label: Web Server Enabled
   show_subquestion_if: true
   subquestions:
-  - variable: web.host
-    default: ""
+  - variable: web.name
+    default: "web"
     type: string
-    label: Hostname
-    description: "Will be used for ingress and generate certificate"
+    label: "Name"
+    description: "Will be used to name the resources"
   - variable: web.entrypoint
     default: ""
     type: string
@@ -19,6 +19,11 @@ questions:
     default: ""
     type: string
     label: Docker Command
+  - variable: web.host
+    default: ""
+    type: string
+    label: Hostname
+    description: "Will be used for ingress and generate certificate"
 
 - variable: worker.enabled
   group: "Worker Settings"
@@ -30,7 +35,7 @@ questions:
   - variable: worker.name
     default: "worker"
     type: string
-    label: "Worker name"
+    label: "Name"
     description: "Will be used to name the resources"
   - variable: worker.entrypoint
     default: ""
@@ -48,6 +53,11 @@ questions:
   label: Redis Enabled
   show_subquestion_if: true
   subquestions:
+  - variable: redis.name
+    default: "web"
+    type: string
+    label: "Name"
+    description: "Will be used to name the resources"
   - variable: redis.storageclass
     default: ""
     type: storageclass
@@ -60,6 +70,11 @@ questions:
   label: Redis Cache Enabled
   show_subquestion_if: true
   subquestions:
+  - variable: cache.name
+    default: "web"
+    type: string
+    label: "Name"
+    description: "Will be used to name the resources"
   - variable: redis.memory
     default: "100mb"
     type: string

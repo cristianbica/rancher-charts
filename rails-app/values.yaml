@@ -2,20 +2,26 @@ name: ""
 image: ""
 
 web:
+  name: "web"
   enabled: true
   host: ""
   entrypoint: ""
   command: ""
 
 worker:
+  name: "worker"
   enabled: true
   entrypoint: ""
   command: ""
 
 redis:
+  name: "redis"
   enabled: true
   storageclass: ""
 
 cache:
+  name: "redis-cache"
   enabled: true
   memory: 100mb
+
+env: {}
