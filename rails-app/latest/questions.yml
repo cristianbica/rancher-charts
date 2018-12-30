@@ -1,0 +1,16 @@
+questions:
+- variable: web.enabled
+  default: true
+  type: boolean
+  label: Web Server Enabled
+  show_subquestion_if: true
+  group: "Web Server Settings"
+  subquestions:
+  - variable: web.entrypoint
+    default: ""
+    type: string
+    label: Docker Entrypoint
+  - variable: web.command
+    default: ""
+    type: string
+    label: Docker Command

@@ -1,0 +1,20 @@
+name: ""
+image: ""
+
+web:
+  enabled: true
+  host: ""
+  entrypoint: ""
+  command: ""
+
+worker:
+  enabled: true
+  entrypoint: ""
+  command: ""
+
+redis:
+  enabled: true
+
+cache:
+  enabled: true
+  memory: 100mb
