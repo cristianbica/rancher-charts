@@ -174,18 +174,18 @@ questions:
 - variable: env.var11.name
   label: "Name"
   group: "Environment Variables"
-  default: "RAILS_ENV"
+  default: ""
   type: string
 - variable: env.var11.value
   label: "Value"
   group: "Environment Variables"
-  default: "production"
+  default: ""
   type: string
 
 - variable: env.var12.name
   label: "Name"
   group: "Environment Variables"
-  default: "DATABASE_URL"
+  default: ""
   type: string
 - variable: env.var12.value
   label: "Value"
@@ -196,7 +196,7 @@ questions:
 - variable: env.var13.name
   label: "Name"
   group: "Environment Variables"
-  default: "SENTRY_URL"
+  default: ""
   type: string
 - variable: env.var13.value
   label: "Value"
