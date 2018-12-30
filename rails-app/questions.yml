@@ -1,13 +1,15 @@
 questions:
 
 - variable: name
-  group: "Nmae"
+  group: "General Settings"
   default: ""
   type: string
+  label: "Name"
 - variable: image
-  group: "Image"
+  group: "General Settings"
   default: ""
   type: string
+  label: "Image"
 
 
 - variable: web.enabled
