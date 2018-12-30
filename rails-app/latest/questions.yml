@@ -117,46 +117,166 @@ questions:
   type: string
 
 - variable: env.var6.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var6.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var7.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var7.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var8.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var8.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var9.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var9.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
 
 - variable: env.var10.name
+  label: "Name"
   group: "Environment Variables"
   default: ""
   type: string
 - variable: env.var10.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var11.name
+  label: "Name"
+  group: "Environment Variables"
+  default: "RAILS_ENV"
+  type: string
+- variable: env.var11.value
+  label: "Value"
+  group: "Environment Variables"
+  default: "production"
+  type: string
+
+- variable: env.var12.name
+  label: "Name"
+  group: "Environment Variables"
+  default: "DATABASE_URL"
+  type: string
+- variable: env.var12.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var13.name
+  label: "Name"
+  group: "Environment Variables"
+  default: "SENTRY_URL"
+  type: string
+- variable: env.var13.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var14.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var14.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var15.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var15.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var16.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var16.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var17.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var17.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var18.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var18.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var19.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var19.value
+  label: "Value"
+  group: "Environment Variables"
+  default: ""
+  type: string
+
+- variable: env.var20.name
+  label: "Name"
+  group: "Environment Variables"
+  default: ""
+  type: string
+- variable: env.var20.value
+  label: "Value"
   group: "Environment Variables"
   default: ""
   type: string
