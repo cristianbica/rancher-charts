@@ -25,6 +25,14 @@ questions:
     label: "Type"
     options:
     - postgres
+  - variable: db.host
+    default: ""
+    type: string
+    label: Database server host
+  - variable: db.name
+    default: ""
+    type: string
+    label: Database name
   - variable: db.username
     default: "postgres"
     type: string
@@ -33,10 +41,6 @@ questions:
     default: ""
     type: password
     label: Password
-  - variable: db.name
-    default: ""
-    type: string
-    label: Database name
 
 
 - variable: web.enabled
@@ -64,6 +68,11 @@ questions:
     type: string
     label: Hostname
     description: "Will be used for ingress and generate certificate"
+  - variable: web.health
+    default: true
+    type: boolean
+    label: Healthcheck Enabled
+    description: "Will use /healthz as healthcheck"
 
 
 - variable: worker.enabled
@@ -138,7 +147,7 @@ questions:
 - variable: env.var2.name
   label: "Name"
   group: "Environment Variables"
-  default: "DATABASE_URL"
+  default: "SENTRY_URL"
   type: string
 - variable: env.var2.value
   label: "Value"
@@ -149,7 +158,7 @@ questions:
 - variable: env.var3.name
   label: "Name"
   group: "Environment Variables"
-  default: "SENTRY_URL"
+  default: ""
   type: string
 - variable: env.var3.value
   label: "Value"

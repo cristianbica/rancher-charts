@@ -1,19 +1,9 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-    field.cattle.io/creatorId: user-nr8tt
-  creationTimestamp: null
-  generation: 1
-  labels:
-    cattle.io/creator: norman
-    workload.user.cattle.io/workloadselector: deployment-consumer-production-router-web
   name: router-web
-  selfLink: /apis/apps/v1beta2/namespaces/consumer-production/deployments/router-web
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 0
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
