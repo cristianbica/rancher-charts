@@ -13,7 +13,7 @@ spec:
   ports:
   - name: redis-tcp-port
     port: 6379
-    targetPort: redis-tcp-port
+    targetPort: 6379
   selector:
     app: {{ .Values.cache.name }}
     release: "{{ .Release.Name }}"
