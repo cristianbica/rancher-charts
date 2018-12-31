@@ -1,10 +1,10 @@
-{{- if .Values.cache.enabled }}
+{{- if .Values.redis.enabled }}
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Values.cache.name }}
+  name: {{ .Values.redis.name }}
   labels:
-    app: {{ .Values.cache.name }}
+    app: {{ .Values.redis.name }}
     chart: {{ template "app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
@@ -16,24 +16,23 @@ spec:
     metadata:
       labels:
         release: {{ .Release.Name }}
-        app: {{ .Values.cache.name }}
+        app: {{ .Values.redis.name }}
     spec:
       containers:
-      - name: {{ .Values.cache.name }}
+      - name: {{ .Values.redis.name }}
         image: redis:latest
         imagePullPolicy: Always
         args:
         - redis-server
-        - --save
-        - ""
-        - --maxmemory
-        - {{ .Values.cache.memory }}
-        - --maxmemory-policy
-        - allkeys-lru
+        - --appendonly
+        - "yes"
         ports:
         - containerPort: 6379
-          name: cache-port
+          name: redis-port
           protocol: TCP
+        volumeMounts:
+        - mountPath: /data
+          name: {{ .Values.redis.name }}-pesistance
         livenessProbe:
           failureThreshold: 3
           initialDelaySeconds: 3
@@ -50,4 +49,9 @@ spec:
           tcpSocket:
             port: 6379
           timeoutSeconds: 2
+      volumes:
+      - name: {{ .Values.redis.name }}-pesistance
+        persistentVolumeClaim:
+          claimName: {{ .Values.redis.name }}
+
 {{- end }}

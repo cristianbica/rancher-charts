@@ -1,21 +1,21 @@
-{{- if .Values.cache.enabled }}
+{{- if .Values.redis.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.cache.name }}
+  name: {{ .Values.redis.name }}
   labels:
-    app: {{ .Values.cache.name }}
+    app: {{ .Values.redis.name }}
     chart: {{ template "app.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   type: ClusterIP
   ports:
-  - name: cache-port
+  - name: redis-port
     port: 6379
     targetPort: 6379
     protocol: TCP
   selector:
-    app: {{ .Values.cache.name }}
+    app: {{ .Values.redis.name }}
     release: {{ .Release.Name }}
 {{- end }}
