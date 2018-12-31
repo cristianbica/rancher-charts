@@ -55,14 +55,6 @@ questions:
     type: string
     label: "Name"
     description: "Will be used to name the resources"
-  - variable: web.entrypoint
-    default: ""
-    type: string
-    label: Docker Entrypoint
-  - variable: web.command
-    default: ""
-    type: string
-    label: Docker Command
   - variable: web.host
     default: ""
     type: string
@@ -73,6 +65,15 @@ questions:
     type: boolean
     label: Healthcheck Enabled
     description: "Will use /healthz as healthcheck"
+  - variable: web.entrypoint
+    default: ""
+    type: string
+    label: Docker Entrypoint
+    description: "Leave entrypoint and command blank to start a rails server on port 80"
+  - variable: web.command
+    default: ""
+    type: string
+    label: Docker Command
 
 
 - variable: worker.enabled
@@ -91,6 +92,7 @@ questions:
     default: ""
     type: string
     label: Docker Entrypoint
+    description: "Leave entrypoint and command blank to start a sidekiq worker"
   - variable: worker.command
     default: ""
     type: string

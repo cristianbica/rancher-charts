@@ -32,4 +32,10 @@ cache:
   enabled: true
   memory: 100mb
 
-env: {}
+env:
+  var1:
+    name: "A_VAR"
+    value: "A_VALUE"
+  var2:
+    name: ""
+    value: ""

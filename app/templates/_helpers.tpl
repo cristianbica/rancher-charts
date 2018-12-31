@@ -22,3 +22,19 @@ Create chart name and version as used by the chart label.
 {{- define "app.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+
+
+{{- define "app.envvars" }}
+env:
+- name: HOST
+  value: {{ .Values.web.host }}
+- name: DATABASE_URL
+  value: ""
+{{- range $key, $value := .Values.env }}
+{{- if and $value.name $value.value }}
+- name: {{ $value.name }}
+  value: {{ $value.value | quote }}
+{{- end }}
+{{- end }}
+{{- end }}

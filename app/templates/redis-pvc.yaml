@@ -14,5 +14,11 @@ spec:
   resources:
     requests:
       storage: 1Gi
+{{- if .Values.redis.storageclass }}
+{{- if (eq "-" .Values.redis.storageclass) }}
+  storageClassName: ""
+{{- else }}
   storageClassName: "{{ .Values.redis.storageclass }}"
+{{- end }}
+{{- end }}
 {{- end }}

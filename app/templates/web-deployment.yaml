@@ -1,0 +1,77 @@
+{{- if .Values.web.enabled }}
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.web.name }}
+  labels:
+    app: {{ .Values.web.name }}
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        release: {{ .Release.Name }}
+        app: {{ .Values.web.name }}
+    spec:
+      containers:
+      - name: {{ .Values.web.name }}
+        image: {{ .Values.image }}
+        imagePullPolicy: Always
+{{- if or .Values.web.entrypoint .Values.web.command }}
+{{- if .Values.web.entrypoint }}
+        command:
+{{- range $part := (.Values.web.entrypoint | split " ") }}
+        - {{ $part | quote }}
+{{- end }}
+{{- end }}
+{{- if .Values.web.command }}
+        args:
+{{- range $part := (.Values.web.command | split " ") }}
+        - {{ $part | quote }}
+{{- end }}
+{{- end }}
+{{- else }}
+        command:
+        - sh
+        - "-vc"
+        - |
+          bundle exec rake db:migrate
+          bundle exec rails server -p 80
+        args: ""
+{{- end}}
+{{- include "app.envvars" . | indent 8 }}
+        ports:
+        - containerPort: 80
+          name: web-port
+          protocol: TCP
+{{- if .Values.web.health }}
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /healthz
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 2
+          successThreshold: 2
+          timeoutSeconds: 2
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /healthz
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 15
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 2
+{{- end }}
+{{- end }}
