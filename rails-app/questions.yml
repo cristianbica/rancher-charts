@@ -116,21 +116,22 @@ questions:
 
 
 - variable: cache.enabled
-  group: "Redis Cache Settings"
+  group: "Cache Settings"
   default: true
   type: boolean
-  label: Redis Cache Enabled
+  label: Cache Enabled
+  description: "This will be a redis server configured for caching"
   show_subquestion_if: true
   subquestions:
   - variable: cache.name
-    default: "redis-cache"
+    default: "cache"
     type: string
     label: "Name"
     description: "Will be used to name the resources"
-  - variable: redis.memory
+  - variable: cache.memory
     default: "100mb"
     type: string
-    label: Redis Memory Limit
+    label: Redis Cache Memory Limit
 
 
 - variable: env.var1.name

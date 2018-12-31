@@ -28,7 +28,7 @@ redis:
   storageclass: ""
 
 cache:
-  name: "redis-cache"
+  name: "cache"
   enabled: true
   memory: 100mb
 
