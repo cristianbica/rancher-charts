@@ -33,6 +33,14 @@ env:
 - name: DATABASE_URL
   value: "{{ .Values.db.type }}://{{ .Values.db.username }}:{{ .Values.db.password }}@{{ .Values.db.host }}/{{ .Values.db.name }}"
 {{- end}}
+{{- if .Values.redis.enabled }}
+- name: REDIS_URL
+  value: "redis://{{ .Values.redis.name }}:6379/0"
+{{- end}}
+{{- if .Values.cache.enabled }}
+- name: CACHE_URL
+  value: "redis://{{ .Values.cache.name }}:6379/0"
+{{- end}}
 {{- range $key, $value := .Values.env }}
 {{- if and $value.name $value.value }}
 - name: {{ $value.name }}
