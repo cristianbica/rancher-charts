@@ -1,0 +1,21 @@
+{{- if .Values.web.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.web.name }}
+  labels:
+    app: {{ .Values.web.name }}
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+  - name: web-port
+    port: 80
+    targetPort: 80
+    protocol: TCP
+  selector:
+    app: {{ .Values.web.name }}
+    release: {{ .Release.Name }}
+{{- end }}
