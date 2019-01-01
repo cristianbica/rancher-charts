@@ -1,0 +1,19 @@
+{{- if .Values.web.enabled }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.web.name }}
+  labels:
+    app: {{ .Values.web.name }}
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  rules:
+  - host: {{ .Values.web.host }}
+    http:
+      paths:
+        - backend:
+            serviceName: {{ .Values.web.name }}
+            servicePort: 80
+{{- end }}
