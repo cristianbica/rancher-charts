@@ -29,8 +29,10 @@ Create chart name and version as used by the chart label.
 env:
 - name: HOST
   value: {{ .Values.web.host }}
+{{- if .Values.db.enabled }}
 - name: DATABASE_URL
-  value: ""
+  value: "{{ .Values.db.type }}://{{ .Values.db.username }}:{{ .Values.db.password }}@{{ .Values.db.host }}/{{ .Values.db.name }}"
+{{- end}}
 {{- range $key, $value := .Values.env }}
 {{- if and $value.name $value.value }}
 - name: {{ $value.name }}

@@ -4,10 +4,10 @@ image: ""
 db:
   enabled: true
   type: "postgres"
-  host: ""
-  name: ""
+  host: "db"
+  name: "app"
   username: "postgres"
-  password: ""
+  password: "password"
 
 web:
   name: "web"
