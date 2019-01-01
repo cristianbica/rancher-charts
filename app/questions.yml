@@ -26,6 +26,7 @@ questions:
     label: "Type"
     options:
     - postgres
+    - mysql2
   - variable: db.host
     default: ""
     type: string
