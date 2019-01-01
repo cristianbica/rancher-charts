@@ -1,5 +1,5 @@
-name: ""
-image: ""
+image: "private.repo/image:tag"
+imagePullSecrets: "test"
 
 db:
   enabled: true

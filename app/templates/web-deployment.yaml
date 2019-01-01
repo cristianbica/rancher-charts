@@ -21,6 +21,10 @@ spec:
         release: {{ .Release.Name }}
         app: {{ .Values.web.name }}
     spec:
+{{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecrets }}
+{{- end }}
       containers:
       - name: {{ .Values.web.name }}
         image: {{ .Values.image }}

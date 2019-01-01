@@ -1,5 +1,5 @@
-name: ""
 image: ""
+imagePullSecrets: ""
 
 db:
   enabled: true

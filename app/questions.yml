@@ -1,15 +1,16 @@
 questions:
 
-- variable: name
-  group: "General Settings"
-  default: ""
-  type: string
-  label: "Name"
 - variable: image
   group: "General Settings"
   default: ""
   type: string
   label: "Image"
+- variable: imagePullSecrets
+  group: "General Settings"
+  default: ""
+  type: string
+  label: "Private Registry Name"
+  description: "If pulling the image from a private registry enter here the registry name as configured in the Rancher UI"
 
 
 - variable: db.enabled
