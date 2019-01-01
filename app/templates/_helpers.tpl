@@ -25,7 +25,7 @@ Create chart name and version as used by the chart label.
 
 
 
-{{- define "app.envvars" }}
+{{- define "app.vars" }}
 env:
 - name: HOST
   value: {{ .Values.web.host }}

@@ -12,7 +12,7 @@ db:
 web:
   name: "web"
   enabled: true
-  host: ""
+  host: "example.dev"
   entrypoint: ""
   command: ""
 

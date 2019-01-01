@@ -43,11 +43,12 @@ spec:
         - sh
         - "-vc"
         - |
+          bundle exec rake db:create
           bundle exec rake db:migrate
           bundle exec rails server -p 80
         args: ""
 {{- end}}
-{{- include "app.envvars" . | indent 8 }}
+{{- include "app.vars" . | indent 8 }}
         ports:
         - containerPort: 80
           name: web-port
