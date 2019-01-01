@@ -46,7 +46,8 @@ spec:
           bundle exec rake db:create; \
           bundle exec rake db:migrate; \
           bundle exec rails server -p 80
-        args: ""
+        args:
+        - ""
 {{- end}}
 {{- include "app.vars" . | indent 8 }}
         ports:
