@@ -27,7 +27,7 @@ Create chart name and version as used by the chart label.
 
 {{- define "app.vars" }}
 env:
-- name: HOST
+- name: APP_HOST
   value: {{ .Values.web.host }}
 {{- if .Values.db.enabled }}
 - name: DATABASE_URL
