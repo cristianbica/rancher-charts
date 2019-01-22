@@ -15,10 +15,18 @@ web:
   host: ""
   entrypoint: ""
   command: ""
+  balancer: "nginx-ingress"
+  certificates: "cert-manager"
 
 worker:
   name: "worker"
   enabled: true
+  entrypoint: ""
+  command: ""
+
+scheduler:
+  name: "scheduler"
+  enabled: false
   entrypoint: ""
   command: ""
 

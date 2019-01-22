@@ -5,6 +5,7 @@ questions:
   default: ""
   type: string
   label: "Image"
+  required: true
 - variable: imagePullSecrets
   group: "General Settings"
   default: ""
@@ -24,6 +25,7 @@ questions:
     default: "postgres"
     type: enum
     label: "Type"
+    required: true
     options:
     - postgres
     - mysql2
@@ -31,18 +33,22 @@ questions:
     default: ""
     type: string
     label: Database server host
+    required: true
   - variable: db.name
     default: ""
     type: string
     label: Database name
+    required: true
   - variable: db.username
     default: "postgres"
     type: string
-    name: "Username"
+    label: "Username"
+    required: true
   - variable: db.password
     default: ""
     type: password
     label: Password
+    required: true
 
 
 - variable: web.enabled
@@ -67,6 +73,22 @@ questions:
     type: boolean
     label: Healthcheck Enabled
     description: "Will use /healthz as healthcheck"
+  - variable: web.balancer
+    default: "nginx-ingress"
+    type: enum
+    label: Load Balancer Kind
+    description: "Will be used to generate proper annotations"
+    options:
+      - "nginx-ingress"
+      - "traefik"
+  - variable: web.certificates
+    default: "cert-manager"
+    type: enum
+    label: How are certificates generated?
+    description: "Will be used to generate proper annotations"
+    options:
+      - "cert-manager"
+      - "traefik"
   - variable: web.entrypoint
     default: ""
     type: string
@@ -89,6 +111,7 @@ questions:
     default: "worker"
     type: string
     label: "Name"
+    required: true
     description: "Will be used to name the resources"
   - variable: worker.entrypoint
     default: ""
@@ -100,6 +123,29 @@ questions:
     type: string
     label: Docker Command
 
+- variable: scheduler.enabled
+  group: "Scheduler Settings"
+  default: false
+  type: boolean
+  label: Scheduler Enabled
+  show_subquestion_if: true
+  subquestions:
+  - variable: scheduler.name
+    default: "scheduler"
+    type: string
+    label: "Name"
+    required: true
+    description: "Will be used to name the resources"
+  - variable: scheduler.entrypoint
+    default: ""
+    type: string
+    label: Docker Entrypoint
+    required: true
+    description: "Entrypoint to launch recurring jobs scheduler"
+  - variable: scheduler.command
+    default: ""
+    type: string
+    label: Docker Command
 
 - variable: redis.enabled
   group: "Redis Settings"
@@ -112,6 +158,7 @@ questions:
     default: "redis"
     type: string
     label: "Name"
+    required: true
     description: "Will be used to name the resources"
   - variable: redis.storageclass
     default: ""
@@ -131,6 +178,7 @@ questions:
     default: "cache"
     type: string
     label: "Name"
+    required: true
     description: "Will be used to name the resources"
   - variable: cache.memory
     default: "100mb"
