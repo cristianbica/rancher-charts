@@ -68,6 +68,11 @@ questions:
     type: string
     label: Hostname
     description: "Will be used for ingress and generate certificate"
+  - variable: web.host2
+    default: ""
+    type: string
+    label: "2nd Hostname"
+    description: "Will be used for ingress and generate certificate"
   - variable: web.health
     default: true
     type: boolean

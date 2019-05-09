@@ -13,6 +13,7 @@ web:
   name: "web"
   enabled: true
   host: ""
+  host2: ""
   entrypoint: ""
   command: ""
   balancer: "nginx-ingress"

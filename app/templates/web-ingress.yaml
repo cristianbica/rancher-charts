@@ -20,6 +20,9 @@ spec:
   tls:
   - hosts:
       - {{ .Values.web.host }}
+{{- if .Values.web.host2 }}
+      - {{ .Values.web.host2 }}
+{{- end }}
     secretName: {{ .Values.web.name }}-tls-crt
   rules:
   - host: {{ .Values.web.host }}
@@ -28,4 +31,12 @@ spec:
         - backend:
             serviceName: {{ .Values.web.name }}
             servicePort: 80
+{{- if .Values.web.host2 }}
+  - host: {{ .Values.web.host2 }}
+    http:
+      paths:
+        - backend:
+            serviceName: {{ .Values.web.name }}
+            servicePort: 80
+{{- end }}
 {{- end }}
