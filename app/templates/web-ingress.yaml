@@ -20,10 +20,12 @@ spec:
   tls:
   - hosts:
       - {{ .Values.web.host }}
-{{- if .Values.web.host2 }}
-      - {{ .Values.web.host2 }}
-{{- end }}
     secretName: {{ .Values.web.name }}-tls-crt
+{{- if .Values.web.host2 }}
+  - hosts:
+      - {{ .Values.web.host2 }}
+    secretName: {{ .Values.web.name }}2-tls-crt
+{{- end }}
   rules:
   - host: {{ .Values.web.host }}
     http:
