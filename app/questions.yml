@@ -90,7 +90,6 @@ questions:
     description: "Will be used to generate proper annotations"
     options:
       - "nginx-ingress"
-      - "traefik"
   - variable: web.certificates
     default: "cert-manager"
     type: enum
@@ -98,7 +97,11 @@ questions:
     description: "Will be used to generate proper annotations"
     options:
       - "cert-manager"
-      - "traefik"
+  - variable: web.certificatesissuer
+    default: ""
+    type: string
+    label: Certificate Issuer
+    description: "Custom certificate issuer (leave blank to use the default)"
   - variable: web.entrypoint
     default: ""
     type: string

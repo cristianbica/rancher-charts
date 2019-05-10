@@ -19,6 +19,7 @@ web:
   command: ""
   balancer: "nginx-ingress"
   certificates: "cert-manager"
+  certificatesissuer: ""
 
 worker:
   name: "worker"
