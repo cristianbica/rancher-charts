@@ -10,7 +10,7 @@ metadata:
     heritage: {{ .Release.Service }}
 {{- if eq .Values.web.certificates "cert-manager" }}
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "{{ .Values.web.forcessl }}"
     {{- if eq .Values.web.balancer "nginx-ingress" }}
     kubernetes.io/ingress.class: nginx
     {{- end }}

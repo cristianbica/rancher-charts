@@ -13,6 +13,8 @@ web:
   name: "web"
   enabled: true
   host: "example.dev"
+  host2: "example2.dev"
+  forcessl: false
   entrypoint: ""
   command: ""
   balancer: "nginx-ingress"

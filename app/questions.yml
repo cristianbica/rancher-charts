@@ -73,6 +73,11 @@ questions:
     type: string
     label: "2nd Hostname"
     description: "Will be used for ingress and generate certificate"
+  - variable: web.forcessl
+    default: true
+    type: boolean
+    label: Force HTTPS
+    description: "Redirect HTTP to HTTPS"
   - variable: web.health
     default: true
     type: boolean
