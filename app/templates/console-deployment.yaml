@@ -1,0 +1,36 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: console
+  labels:
+    app: console
+    chart: {{ template "app.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        release: {{ .Release.Name }}
+        app: console
+    spec:
+{{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+      - name: {{ .Values.imagePullSecrets }}
+{{- end }}
+      containers:
+      - name: console
+        image: {{ .Values.image }}
+        imagePullPolicy: Always
+        command:
+        - sleep
+        - infinity
+        args:
+        - ""
+{{- include "app.vars" . | indent 8 }}
