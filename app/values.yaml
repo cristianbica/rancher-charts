@@ -8,6 +8,7 @@ db:
   name: ""
   username: "postgres"
   password: ""
+  url: ""
 
 web:
   name: "web"

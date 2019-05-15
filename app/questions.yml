@@ -25,7 +25,6 @@ questions:
     default: "postgres"
     type: enum
     label: "Type"
-    required: true
     options:
     - postgres
     - mysql2
@@ -33,23 +32,23 @@ questions:
     default: ""
     type: string
     label: Database server host
-    required: true
   - variable: db.name
     default: ""
     type: string
     label: Database name
-    required: true
   - variable: db.username
     default: "postgres"
     type: string
     label: "Username"
-    required: true
   - variable: db.password
     default: ""
     type: password
     label: Password
-    required: true
-
+  - variable: db.url
+    default: ""
+    type: string
+    label: Database URL
+    description: "Will override the other db variables"
 
 - variable: web.enabled
   group: "Web Server Settings"

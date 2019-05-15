@@ -31,7 +31,11 @@ env:
   value: {{ .Values.web.host }}
 {{- if .Values.db.enabled }}
 - name: DATABASE_URL
+{{- if .Values.db.url }}
+  value: "{{ .Values.db.url }}"
+{{- else }}
   value: "{{ .Values.db.type }}://{{ .Values.db.username }}:{{ .Values.db.password }}@{{ .Values.db.host }}/{{ .Values.db.name }}"
+{{- end}}
 {{- end}}
 {{- if .Values.redis.enabled }}
 - name: REDIS_URL
