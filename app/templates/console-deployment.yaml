@@ -30,7 +30,6 @@ spec:
         imagePullPolicy: Always
         command:
         - sleep
-        - infinity
         args:
-        - ""
+        - "infinity"
 {{- include "app.vars" . | indent 8 }}
